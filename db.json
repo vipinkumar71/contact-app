@@ -1,7 +1,7 @@
 {
   "contacts": [
     {
-      "name": "Rajesh Thakur",
+      "name": "Rajesh TEST",
       "email": "rajesh123@gmail.com",
       "contact": "83673677367635",
       "id": "1"
@@ -17,12 +17,6 @@
       "email": "deepak@gmail.com",
       "contact": "1234567",
       "id": "6"
-    },
-    {
-      "id": "a9dd",
-      "name": "Vipin kumar",
-      "email": "VIPINTHAKUR3881@GMAIL.COM",
-      "contact": "123456789"
     }
   ]
 }

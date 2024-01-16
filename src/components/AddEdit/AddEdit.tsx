@@ -19,7 +19,8 @@ const AddEdit = () => {
   const [editMode, setEditMode] = useState(false);
   const [addContact] = useAddContactMutation();
   const [updateContact] = useUpdateContactMutation();
-
+  const [isValid, setIsValid] = useState(true);
+  
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
 
@@ -47,7 +48,12 @@ const AddEdit = () => {
   const handleInputChange = (e: any) => {
     let { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
+
+    const phonePattern = /^\d{10}$/;
+    setIsValid(phonePattern.test(value));
+    
   };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!name && !email && !contact) {
@@ -83,6 +89,7 @@ const AddEdit = () => {
           name="name"
           placeholder="Enter Name ..."
           value={name}
+          required
           onChange={handleInputChange}
         />
         <label htmlFor="email">Email</label>
@@ -92,6 +99,7 @@ const AddEdit = () => {
           name="email"
           placeholder="Enter Email ..."
           value={email}
+          required
           onChange={handleInputChange}
         />
         <label htmlFor="contact">Contact</label>
@@ -101,8 +109,14 @@ const AddEdit = () => {
           name="contact"
           placeholder="Enter Contact no. ..."
           value={contact}
+          required
           onChange={handleInputChange}
         />
+        {!isValid && contact && 
+        <p style={{ color: 'red' }}>
+          Please enter a valid phone number
+          </p>
+        }
         <input type="submit" value={editMode ? "Update" : "Add"} />
       </form>
     </div>

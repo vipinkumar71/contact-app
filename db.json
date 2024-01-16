@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Rajesh Thakur",
+      "email": "rajesh123@gmail.com",
+      "contact": "83673677367635",
+      "id": "1"
+    },
+    {
+      "name": " Nikhil ",
+      "email": "nikhil@gmail.com",
+      "contact": "65365365",
+      "id": "5"
+    },
+    {
+      "name": "Deepak kumar",
+      "email": "deepak@gmail.com",
+      "contact": "1234567",
+      "id": "6"
+    },
+    {
+      "id": "a9dd",
+      "name": "Vipin kumar",
+      "email": "VIPINTHAKUR3881@GMAIL.COM",
+      "contact": "123456789"
+    }
+  ]
+}

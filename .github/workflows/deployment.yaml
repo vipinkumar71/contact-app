@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app-deployment
+  name: contact-app-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: contact-app
@@ -13,7 +13,11 @@ spec:
         app: contact-app
     spec:
       containers:
-      - name: react-app
-        image: react-app:latest
+      - name: contact-app
+        image: contact-app:latest
         ports:
-        - containerPort: 80
+        - containerPort: 3000
+        - containerPort: 5000
+        env:
+        - name: REACT_APP_JSON_SERVER_URL
+          value: "http://localhost:5000"

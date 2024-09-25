@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Contact } from "../model/contact.model";
 
+// Correct usage of environment variable
+const API_URL = process.env.REACT_APP_JSON_SERVER_URL + "/contacts";
+
 export const contactsApi = createApi({
   reducerPath: "contactsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_JSON_SERVER_URL }),
   tagTypes: ["Contact"],
   endpoints: (builder) => ({
     contacts: builder.query<Contact[], void>({
@@ -40,6 +43,7 @@ export const contactsApi = createApi({
   }),
 });
 
+// Hooks to use the endpoints
 export const {
   useContactsQuery,
   useContactQuery,

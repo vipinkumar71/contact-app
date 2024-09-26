@@ -6,7 +6,7 @@ const API_URL = process.env.REACT_APP_JSON_SERVER_URL + "/contacts";
 
 export const contactsApi = createApi({
   reducerPath: "contactsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_JSON_SERVER_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
   tagTypes: ["Contact"],
   endpoints: (builder) => ({
     contacts: builder.query<Contact[], void>({

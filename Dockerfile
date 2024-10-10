@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Start JSON Server.
-CMD ["npm", "start", "npx", "json-server", "--watch", "db.json", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["npm", "start", "json-server", "--watch", "db.json", "--host", "0.0.0.0", "--port", "5000"]

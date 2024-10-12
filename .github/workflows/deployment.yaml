@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: contact-app
-        image: your-dockerhub-username/contact-app:json-server
+        image: vipinkumar71/contact-app:json-server
         ports:
         - containerPort: 80  # For React app
         - containerPort: 5000 # For JSON server

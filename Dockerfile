@@ -1,20 +1,28 @@
-# Use the official Node.js image.
-FROM node:14
+# Stage 1: Build the React app
+FROM node:18 AS build
 
-# Set the working directory in the container.
 WORKDIR /app
 
-# Copy package.json and package-lock.json.
+# Install dependencies
 COPY package*.json ./
-
-# Install dependencies.
 RUN npm install
 
-# Copy the rest of your application code.
+# Copy all the files and build the app
 COPY . .
+RUN npm run build
 
-# Expose the port on which JSON Server will run.
+# Stage 2: Setup Nginx and serve the React app
+FROM nginx:alpine
+
+# Copy the React build files from the previous stage
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Copy custom nginx config (optional)
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80 for the React app and 5000 for the JSON server
+EXPOSE 80
 EXPOSE 5000
 
-# Start JSON Server.
-CMD ["npm", "start", "json-server", "--watch", "db.json", "--host", "0.0.0.0", "--port", "5000"]
+# Start both Nginx and JSON server using a shell script
+CMD ["sh", "-c", "nginx && json-server --watch /app/db.json --port 5000"]

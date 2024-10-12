@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-json-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contact-json-server
+  template:
+    metadata:
+      labels:
+        app: contact-json-server
+    spec:
+      containers:
+      - name: contact-json-server
+        image: contact-json-server
+        ports:
+        - containerPort: 5000

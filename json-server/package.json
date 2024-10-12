@@ -1,0 +1,13 @@
+{
+    "name": "json-server",
+    "version": "1.0.0",
+    "description": "Mock REST API using json-server",
+    "main": "index.js",
+    "scripts": {
+      "start": "json-server --watch db.json --host 0.0.0.0"
+    },
+    "dependencies": {
+      "json-server": "^0.16.3"
+    }
+  }
+  
